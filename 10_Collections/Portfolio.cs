@@ -5,22 +5,22 @@ namespace _10_Collections{
 
     internal class Portfolio : IAsset{
 
-        private List<IAsset> stocks;
+        private List<IAsset> assets;
 
         public Portfolio(){
 
-            stocks = new List<IAsset>();
+            assets = new List<IAsset>();
         }
 
         public Portfolio(List<IAsset> stocks){
 
-            this.stocks = stocks;
+            this.assets = stocks;
         }
 
         internal double GetTotalValue(){
 
             double total = 0;
-            foreach (IAsset instance in stocks){
+            foreach (IAsset instance in assets){
                 total += instance.GetValue();
             }
             return total;
@@ -28,12 +28,12 @@ namespace _10_Collections{
 
         internal void AddAsset(IAsset classInstance){
 
-            stocks.Add(classInstance);
+            assets.Add(classInstance);
         }
 
         internal IList<IAsset> GetAssets(){
 
-            return stocks.AsReadOnly();
+            return assets.AsReadOnly();
         }
 
         public static double TotalValue(IAsset[] stocks){
@@ -48,7 +48,7 @@ namespace _10_Collections{
         internal IAsset GetAssetByName(string name){
 
             IAsset element = null;
-            foreach(IAsset asset in stocks){
+            foreach(IAsset asset in assets){
                 if (asset.GetName().Equals(name)){
                     element = asset;
                 }
@@ -58,14 +58,14 @@ namespace _10_Collections{
 
         internal IList<IAsset> GetAssetsSortedByName(){
 
-            stocks.Sort(new StockNameComparator());
-            return stocks;
+            assets.Sort(new StockNameComparator());
+            return assets;
         }
 
         internal IList<IAsset> GetAssetsSortedByValue(){
 
-            stocks.Sort(new StockValueComparator());
-            return stocks;
+            assets.Sort(new StockValueComparator());
+            return assets;
         }
 
         public string GetName(){
