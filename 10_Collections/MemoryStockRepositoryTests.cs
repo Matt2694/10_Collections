@@ -88,6 +88,6 @@ namespace _10_Collections
             Assert.AreEqual(0, stocks.Count);
         }
 
-        
+
     }
 }
