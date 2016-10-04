@@ -2,7 +2,7 @@
 
 namespace _10_Collections{
 
-    internal class Stock : IAsset{
+    public class Stock : IAsset{
 
         public double NumShares { get; set; }
         public double PricePerShare { get; set; }

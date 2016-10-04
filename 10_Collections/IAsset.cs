@@ -2,7 +2,7 @@
 
 namespace _10_Collections{
 
-    internal interface IAsset{
+    public interface IAsset{
 
         double GetValue();
         string GetName();

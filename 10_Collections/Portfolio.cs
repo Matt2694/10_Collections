@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace _10_Collections{
 
-    internal class Portfolio : IAsset{
+    public class Portfolio : IAsset{
 
         private List<IAsset> assets;
 
@@ -17,7 +17,7 @@ namespace _10_Collections{
             this.assets = stocks;
         }
 
-        internal double GetTotalValue(){
+        public double GetTotalValue(){
 
             double total = 0;
             foreach (IAsset instance in assets){
@@ -26,12 +26,12 @@ namespace _10_Collections{
             return total;
         }
 
-        internal void AddAsset(IAsset classInstance){
+        public void AddAsset(IAsset classInstance){
 
             assets.Add(classInstance);
         }
 
-        internal IList<IAsset> GetAssets(){
+        public IList<IAsset> GetAssets(){
 
             return assets.AsReadOnly();
         }
@@ -45,7 +45,7 @@ namespace _10_Collections{
             return total;
         }
 
-        internal IAsset GetAssetByName(string name){
+        public IAsset GetAssetByName(string name){
 
             IAsset element = null;
             foreach(IAsset asset in assets){
@@ -56,7 +56,7 @@ namespace _10_Collections{
             return element;
         }
 
-        internal IList<IAsset> GetAssetsSortedByName(){
+        public IList<IAsset> GetAssetsSortedByName(){
 
             assets.Sort(new StockNameComparator());
             return assets;
