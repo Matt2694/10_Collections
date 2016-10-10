@@ -6,20 +6,22 @@ namespace _10_Collections{
 
     internal class MemoryStockRepository : IStockRepository{
 
-        private long CurrentID = 0;
+        private long currentID = 0;
+
+        public long CurrentID { get { return currentID; } set { currentID = value; } }
 
         Dictionary<long, Stock> Database = new Dictionary<long, Stock>();
 
         public long NextId(){
 
-            this.CurrentID++;
+            CurrentID++;
             return CurrentID;
         }
 
         public void SaveStock(Stock Stock){
 
             Database.Add(CurrentID, Stock);
-            this.NextId();
+            NextId();
         }
 
         public Stock LoadStock(long id){
